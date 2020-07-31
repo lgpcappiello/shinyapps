@@ -1,0 +1,10 @@
+name: charactergenerator
+title:
+username:
+account: lgpcappiello
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2166649
+bundleId: 3052299
+url: https://lgpcappiello.shinyapps.io/charactergenerator/
+when: 1587596912.68732
