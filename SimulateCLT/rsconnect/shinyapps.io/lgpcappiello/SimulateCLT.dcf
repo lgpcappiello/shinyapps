@@ -1,0 +1,13 @@
+name: SimulateCLT
+title: SimulateCLT
+username:
+account: lgpcappiello
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5558364
+bundleId: 5531827
+url: https://lgpcappiello.shinyapps.io/SimulateCLT/
+when: 1643740065.79025
+lastSyncTime: 1643740065.79026
+asMultiple: FALSE
+asStatic: FALSE
