@@ -18,7 +18,7 @@ shinyServer(function(input, output) {
         binom.dat <- as.data.frame(simbin)
         scalenorm <- function(x, mean = 0, sd = 1, log = FALSE){
             1000*dnorm(x, mean, sd, log)
-            }
+        }
         # if(input$target == "between"){
             sub <- simbin[simbin > (input$a-1) & simbin < (input$b+1)]
             subset.dat <- as.data.frame(sub)
@@ -52,8 +52,22 @@ shinyServer(function(input, output) {
                           args = list(mean = mu,
                                       sd = sigma)
             )
-        # plot(temp_hist, col=my_color , border=F , main="" , xlab="value of the variable")
-        
+    })
+    output$binom <- renderText({
+        probbin <- round(pbinom(input$b, input$n, input$p)-pbinom(input$a-1, input$n, input$p),4)
+        paste("Exact Binomial Probability: P( ", input$a," ≤ X ≤ ", input$b, ") = ", probbin)
+    })
+    output$normdef <- renderText({
+        mu <- input$n*input$p
+        sigma <- sqrt(input$n*input$p*(1-input$p))
+        probnorm.nc <- round(pnorm(input$b, mu, sigma) - pnorm(input$a, mu, sigma), 4)
+        paste("Normal Approximation Without Correction: P( ", input$a," ≤ X ≤ ", input$b, ") = ", probnorm.nc)
+    })
+    output$normcor <- renderText({
+        mu <- input$n*input$p
+        sigma <- sqrt(input$n*input$p*(1-input$p))
+        probnorm.c <- round(pnorm(input$b+0.5, mu, sigma) - pnorm(input$a-0.5, mu, sigma), 4)
+        paste("Normal Approximation With Correction: P( ", input$a," ≤ X ≤ ", input$b, ") = ", probnorm.c)
     })
     
 })

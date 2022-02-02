@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(ggplot2)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
@@ -85,7 +86,8 @@ shinyUI(fluidPage(
 
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot"),
+            textOutput("text1")
         )
     )
 ))

@@ -30,13 +30,14 @@ shinyUI(fluidPage(
                          max = 1,
                          value = 0.5,
                          step=0.1),
-            h4("Visualize P(a ≤ X ≤ b)"),
+            h4("Calculate P(a ≤ X ≤ b)"),
             numericInput("a",
                          "a:",
                          value = 2),
             numericInput("b",
                          "b:",
-                         value = 5)
+                         value = 5),
+            h5("Note: Setting b < a will result in nonsense probabilities.")
             # selectInput("target", "Probability to Calculate",
             #             c("P(a ≤ X ≤ b)" = "between",
             #               "P(X ≤ a)"="less",
@@ -69,7 +70,10 @@ shinyUI(fluidPage(
 
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("plot")
+            plotOutput("plot"),
+            textOutput("binom"),
+            textOutput("normdef"),
+            textOutput("normcor")
         )
     )
 ))
