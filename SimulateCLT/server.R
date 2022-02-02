@@ -30,7 +30,7 @@ shinyServer(function(input, output) {
         means <- colMeans(samples)
         
 
-        # draw the histogram with the specified number of bins
+        # draw the histogram
         hist(means, col = 'darkgray', border = 'white')
 
     })
