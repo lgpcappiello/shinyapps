@@ -5,9 +5,9 @@ account: lgpcappiello
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5854058
-bundleId: 5684363
+bundleId: 5684384
 url: https://lgpcappiello.shinyapps.io/normcalc/
-when: 1647302712.54777
-lastSyncTime: 1647302712.54777
+when: 1647303243.08232
+lastSyncTime: 1647303243.08232
 asMultiple: FALSE
 asStatic: FALSE

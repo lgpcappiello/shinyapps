@@ -74,11 +74,15 @@ ui <- fluidPage(
            conditionalPanel(
                condition = "input.calc == 'pr'",
                textOutput("prob"),
-               textOutput("info")
+               textOutput("warning")
            ),
            conditionalPanel(
                condition = "input.calc == 'z'",
                textOutput("zscore")
+           ),
+           conditionalPanel(
+               condition = "input.second == 'y' & input.calc != 'none'",
+               textOutput("dist2")
            )
         )
     )
@@ -144,10 +148,13 @@ server <- function(input, output) {
             paste("Probability error: probabilities must be between 0 and 1.")
         }
     })
-    output$info <- renderText({
+    output$warning <- renderText({
         if(input$a == input$b){
             paste("Note: Setting a=b may break the graphics. Change either value to fix the plot.")
         }
+    })
+    output$dist2 <- renderText({
+        paste("Note: The second distribution is for visualization purposes and works best when `Calculate` is set to `Nothing`.")
     })
     
 }
